@@ -1,15 +1,16 @@
-import styles from "./header.module.css"
+import styles from "./header.module.css";
 
-function Header (){
-     return (
+function Header() {
+  return (
     <>
-      <div className="header">
-        <a href="home">Home</a>
-        <p>ta funcionando?</p>
-        <a href="salas">Salas</a>
-        <a href="senai">Senai</a>
-      </div>
+      <header className={styles.header}>
+        <div className={styles.header}>
+          <a href="home">Home</a>
+          <a href="salas">Salas</a>
+          <a href="senai">Senai</a>
+        </div>
+      </header>
     </>
   );
 }
-export default Header
+export default Header;
