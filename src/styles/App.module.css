@@ -1,0 +1,11 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(71, 32, 72);
+}
+
+.header p{
+background-color: black;
+
+}

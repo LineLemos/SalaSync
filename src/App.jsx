@@ -1,19 +1,5 @@
-import { useState } from 'react'
-import "./css/App.css"
+import { Routers } from "./routes/routes";
 
-
-function App() {
-
-  return (
-    <>
-      <div className="header">
-        <a href="#">Home</a>
-        <p>ola</p>
-        <a href="#">Salas</a>
-        <a href="#">Senai</a>
-      </div>
-    </>
-  );
+export function App() {
+  return <Routers />;
 }
-
-export default App
