@@ -9,6 +9,7 @@ export function Routers() {
     <Routes>
       <Route element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/details" element={<Reservation />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
