@@ -4,9 +4,35 @@
     box-sizing: border-box;
 }
 
-.header p{
-    background-color: black;
-    width: 100px;
-    height: 100px;
+.header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.senailogo{
+    color: red;
+    font-size: 3.5em;
+}
+
+.senainame{
+    color: red;
+    font-size: 3em;
+}
+.text{
+    color: red;
+    font-size: 1.5em;
+    width: 80%;
+    text-align: justify;
 }
 
