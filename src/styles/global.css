@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Teachers, Helvetica, sans-serif;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Previne a rolagem desnecessária */
+}
 
 h1,
 h2,
@@ -30,3 +39,31 @@ a {
     border: 0;
     outline: none;
 }
+
+ .button {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.header-class, 
+.header-class * { 
+  font-family: 'Yanone Kaffeesatz', sans-serif !important; 
+}
+
+body{
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* -------GUIA------ */
+/* FONTES:
+AVERTA - SENAI 
+Yanone Kaffeesatz - NavBar 
+Open - Sans - Textos Diversos */
+
+/* CORES:
+Cinza Firjan: #393230
+Azul Firjan: #003bd1
+Azul Senai: #83c7e5 
+cinza claro Firjan: #d9d9d6*/

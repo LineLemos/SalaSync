@@ -1,11 +1,19 @@
 import React from 'react'
 import styles from './reservation.module.css'
+import Header from "../../components/Header/indexHeader";
 
-function Reservation() {
+
+export function Reservation() {
   return (
-    
-    <div>Reservation</div>
-  )
+    <div className={styles.container}>
+      <Header />
+      <div className={styles.header}>
+        {/* <Logo className={styles.logo} /> {senai-logo.svg} */}
+        <div className={styles.buttonContainer}>
+          <button className={styles.button}>Cadastrar Sala</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Reservation;
