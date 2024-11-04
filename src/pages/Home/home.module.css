@@ -15,10 +15,9 @@
     padding: 0;
     display: flex;
     flex-direction: column; 
-    /* align-items: center; */
-    justify-content: center;
+    justify-content: space-between;
     color: whitesmoke;
-    z-index: -1;
+     z-index: -1;
 }
 
 .container::before {
@@ -63,25 +62,67 @@
     align-items: flex-start;
     justify-content: center;
     padding: 50px;
+    width: 56%;
 
 }
 
-.senailogo{
+.senaiLogo{
     
     font-size: 3.5em;
 }
 
-.senainame{
+.senaiName{
     
     font-size: 3em;
 }
 .text{
-    font-size: 1.5em;
+    font-size: 1.3em;
     width: 80%;
     text-align: justify;
 }
 
-.login{
-    padding: 50px;
+
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 60px;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
 }
+
+.fab {
+    color: #FFF;
+    font-size: 28px;
+}
+
+.footer p {
+    max-width: 800px;
+    line-height: 22px;
+}
+
+.footer p span {
+    color:  #83c7e5;
+    font-weight: 500;
+}
+
+.footerIcons{
+display: flex;
+    gap: 20px; 
+}
+
+.footerIcons i {
+    color: #FFF;
+    font-size: 16px;
+    transition: color 0.3s; 
+}
+
+.footerIcons i:hover{
+    color: #003bd1 !important;
+} 
 
