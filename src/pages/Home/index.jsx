@@ -1,6 +1,10 @@
 import Header from "../../components/Header/indexHeader";
 import styles from "./home.module.css";
 import Login from "../../components/Login/Login";
+import logo from "../../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 
 export function Home() {
   return (
@@ -9,10 +13,18 @@ export function Home() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.content}>
-            <div className={styles.title}>
-              <h1 className={styles.senaiLogo}>SENAI </h1>
-              <h1 className={styles.senaiName}>SalaSync</h1>
+            <div className={styles.senaiContainer}>
+              <div className={styles.title}>
+                <h1 className={styles.senaiLogo}>SENAI</h1>
+                <img src={logo} alt="Logo" className={styles.logo} />
+              </div>
+              <div className={styles.salaSyncContainer}>
+                {" "}
+                <h1 className={styles.senaiName}>SalaSync</h1>{" "}
+                <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />{" "}
+              </div>
             </div>
+
             <p className={styles.text}>
               Aumente a eficiência e a organização com nosso sistema de gestão
               de salas. Nossa plataforma permite que instituições e empresas

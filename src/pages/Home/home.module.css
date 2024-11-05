@@ -31,15 +31,41 @@
     z-index: -1;
 }
 
-.title{
-    align-items: center;
+.senaiContainer{
     display: flex;
-    justify-content: center;
+    align-items: center; 
     flex-direction: column;
     text-align: center;
+    justify-content: center;
     width: 80%;
-    padding-bottom: 20px;
+    gap:10px;
+    
+} 
+
+.logo{
+    height: 78px;
+    width: 70px;
 }
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.salaSyncContainer { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+     /* margin-top: 10px;  */
+    }
+
+.icon {
+    font-size: 2em;
+    color: #fff;
+    margin-top: 10px; 
+}
+
 .header,
 .content,
 .login {
@@ -61,26 +87,33 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 50px;
-    width: 56%;
+    width: 40%;
 
 }
 
 .senaiLogo{
-    
+    margin: 0;
     font-size: 3.5em;
+    font-weight: 600;
 }
 
 .senaiName{
-    
+    margin: 0;
     font-size: 3em;
+    margin-right: 20px;
+    margin-top: -20px;
+    font-weight: 400;
 }
 .text{
     font-size: 1.3em;
     width: 80%;
     text-align: justify;
+    text-shadow: 4px 4px 4px #000000;
 }
 
+.login{
+    padding-top: 40px;
+}
 
 
 footer {
