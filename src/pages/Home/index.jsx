@@ -13,6 +13,7 @@ export function Home() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.content}>
+            
             <div className={styles.senaiContainer}>
               <div className={styles.title}>
                 <h1 className={styles.senaiLogo}>SENAI</h1>
