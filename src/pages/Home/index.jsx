@@ -5,7 +5,6 @@ import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
-
 export function Home() {
   return (
     <>
@@ -20,12 +19,10 @@ export function Home() {
                 <img src={logo} alt="Logo" className={styles.logo} />
               </div>
               <div className={styles.salaSyncContainer}>
-                {" "}
-                <h1 className={styles.senaiName}>SalaSync</h1>{" "}
-                <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />{" "}
+                <h1 className={styles.senaiName}>SalaSync</h1>
+                <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />
               </div>
             </div>
-
             <p className={styles.text}>
               Aumente a eficiência e a organização com nosso sistema de gestão
               de salas. Nossa plataforma permite que instituições e empresas
@@ -34,12 +31,10 @@ export function Home() {
               forma possível.
             </p>
           </div>
-
           <div className={styles.login}>
             <Login />
           </div>
         </div>
-
         <footer className={styles.footer}>
           <div className={styles.footerIcons}>
             <i className="fab fa-instagram"></i>

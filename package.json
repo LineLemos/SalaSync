@@ -17,6 +17,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "react-svg-loader": "^3.0.3",
+    "react-vector-icons": "^0.0.1",
     "salasync": "file:"
   },
   "devDependencies": {
