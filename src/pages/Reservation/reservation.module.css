@@ -10,7 +10,6 @@
 .header{
   padding: 70px;
   margin-top: -110px;
-  /* padding-bottom: 330px; */
   display: flex; 
   align-items: center; 
   justify-content: space-between;
@@ -42,10 +41,13 @@
 
 .logoContainer{
   display: flex;
-  
 }
 
 .logo{
    height: 68px;
     width: 60px;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }

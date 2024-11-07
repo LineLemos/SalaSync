@@ -18,11 +18,13 @@ export function Home() {
                 <h1 className={styles.senaiLogo}>SENAI</h1>
                 <img src={logo} alt="Logo" className={styles.logo} />
               </div>
+
               <div className={styles.salaSyncContainer}>
                 <h1 className={styles.senaiName}>SalaSync</h1>
                 <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />
               </div>
             </div>
+            
             <p className={styles.text}>
               Aumente a eficiência e a organização com nosso sistema de gestão
               de salas. Nossa plataforma permite que instituições e empresas
