@@ -9,7 +9,15 @@ export default function Header() {
         <div className={styles.div}>
           <Link to="/">Home</Link>
           <Link to="/salas">Salas</Link>
-          <Link to="/senai">Senai</Link>
+          <Link to="/reservas">Reservas</Link>
+          <Link to="/usuarios">Usuários</Link>
+          <a
+            href="https://www.firjan.com.br/senai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Senai
+          </a>
         </div>
       </header>
     </>

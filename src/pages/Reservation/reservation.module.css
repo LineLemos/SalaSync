@@ -7,11 +7,17 @@
   padding: 0;
 }
 
+.header{
+  padding: 70px;
+  margin-top: -110px;
+  /* padding-bottom: 330px; */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+}
+
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
-  padding: 50px;
-  margin-top: -85px;
 }
 
 .button {
@@ -32,4 +38,14 @@
 
 .button:hover {
   color:   #393230;
+}
+
+.logoContainer{
+  display: flex;
+  
+}
+
+.logo{
+   height: 68px;
+    width: 60px;
 }

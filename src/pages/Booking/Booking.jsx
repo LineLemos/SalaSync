@@ -1,10 +1,9 @@
-import React from 'react';
-import styles from './reservation.module.css';
+import React from "react";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
+import styles from "../Reservation/reservation.module.css";
 
-
-export function Reservation() {
+export function Booking() {
   return (
     <div className={styles.container}>
       <Header />
@@ -17,9 +16,8 @@ export function Reservation() {
         <div className={styles.buttonContainer}>
           <button className={styles.button}>Cadastrar Sala</button>
         </div>
-        
+      
       </div>
     </div>
   );
 }
-
