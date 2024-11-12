@@ -12,21 +12,23 @@ export function Home() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.content}>
-            
-            <div className={styles.senaiContainer}>
-              <div className={styles.title}>
-                <h1 className={styles.senaiLogo}>SENAI</h1>
-                <img src={logo} alt="Logo" className={styles.logo} />
-              </div>
 
-              <div className={styles.salaSyncContainer}>
-                <h1 className={styles.senaiName}>SalaSync</h1>
-                <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />
+            <div className={styles.all}>
+              <div className={styles.senaiContainer}>
+                <div className={styles.title}>
+                  <h1 className={styles.senaiLogo}>SENAI</h1>
+                  <img src={logo} alt="Logo" className={styles.logo} />
+                </div>
+
+                <div className={styles.salaSyncContainer}>
+                  <h1 className={styles.senaiName}>SalaSync</h1>
+                </div>
               </div>
+              <FontAwesomeIcon icon={faAngleRight} className={styles.icon} />
             </div>
-            
+
             <p className={styles.text}>
-              Aumente a eficiência e a organização com nosso sistema de gestão
+              <br/>Aumente a eficiência e a organização com nosso sistema de gestão
               de salas. Nossa plataforma permite que instituições e empresas
               gerenciem facilmente a reserva de salas e auditórios, economizando
               tempo e garantindo que todos os espaços sejam utilizados da melhor
@@ -57,3 +59,6 @@ export function Home() {
     </>
   );
 }
+// isso aqui ó aline 
+// pourra
+// npm run dev -- --host

@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
-import styles from "../Reservation/reservation.module.css";
+import styles from "../Room/room.module.css";
 
 
 export function Users() {
@@ -11,7 +11,7 @@ export function Users() {
       <div className={styles.header}>
         <img src={logo} alt="Logo" className={styles.logo} />
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Cadastrar Sala</button>
+          <button className={styles.button}>Editar Usuários</button>
         </div>
       </div>
     </div>

@@ -32,6 +32,14 @@
     z-index: -1;
 }
 
+.all{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .senaiContainer {
     display: flex;
     align-items: center;
@@ -56,16 +64,15 @@
 .salaSyncContainer {
     display: flex;
     align-items: center;
-    gap: 10px;
+    
 }
 
 .icon {
-    font-size: 2em;
+    font-size: 3em;
     color: #fff;
     margin-top: 10px;
 }
 
-.header,
 .content,
 .login {
     position: relative;
@@ -93,13 +100,14 @@
     margin: 0;
     font-size: 3.5em;
     font-weight: 600;
+    
 }
 
 .senaiName {
     margin: 0;
     font-size: 3em;
-    margin-right: 20px;
-    margin-top: -20px;
+    /* margin-right: 20px;
+    margin-top: -20px; */
     font-weight: 400;
 }
 

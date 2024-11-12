@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
-import styles from "../Reservation/reservation.module.css";
+import styles from "../Room/room.module.css";
 
 export function Booking() {
   return (
@@ -14,7 +14,7 @@ export function Booking() {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Cadastrar Sala</button>
+          <button className={styles.button}>Ver Reservas</button>
         </div>
       
       </div>
