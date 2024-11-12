@@ -28,6 +28,8 @@ export function Room() {
           <button className={styles.button} onClick={openModal}>
             Cadastrar Sala
           </button>
+
+
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
@@ -35,8 +37,29 @@ export function Room() {
             overlayClassName={styles.modalOverlay}
             className={styles.modalContent}
           >
-            {/* estilizar e colocar conteudo */}
-            <button onClick={closeModal}>Close</button>
+            <form>
+              <div className={styles.form}>
+                <div className={styles.formContent}>
+                  <h1>Cadastro de Sala</h1>
+                  <label htmlFor="name">Nome da Sala</label>
+                  <input type="text" id="name" required />
+
+                  <label htmlFor="description">Descrição</label>
+                  <textarea
+                    rows="8"
+                    cols="40"
+                    maxlength="400"
+                    required
+                  ></textarea>
+                </div>
+                 <button className={styles.submitButton}>Criar Sala</button>
+              </div>
+            </form>
+              
+
+            <button onClick={closeModal} className={styles.closeButton}>
+              <i className="fas fa-times"></i>
+            </button>
           </Modal>
         </div>
       </div>

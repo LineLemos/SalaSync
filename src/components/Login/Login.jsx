@@ -29,12 +29,11 @@ export default function Login() {
         <div className={styles.divisaoTexto}>
           <h1 className={styles.div}>Log In.</h1>
         </div>
-        <button>Administrador/Professor</button>
-        <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder="User" />
+        <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Usuário" />
         <input
           onChange={(e) => setPassword(e.target.value)}
           type="text"
-          placeholder="Password"
+          placeholder="Senha"
         />
         <div>
           <button onClick={handleClick}>Entrar</button>
