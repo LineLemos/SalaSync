@@ -38,13 +38,14 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+
 }
 
 .senaiContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+   
     justify-content: center;
     width: 80%;
     gap: 10px;
@@ -93,6 +94,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+  
     width: 40%;
 }
 
@@ -106,8 +108,6 @@
 .senaiName {
     margin: 0;
     font-size: 3em;
-    /* margin-right: 20px;
-    margin-top: -20px; */
     font-weight: 400;
 }
 
@@ -163,7 +163,7 @@ footer {
 }
 
 .footerIcons i:hover {
-    color: #003bd1 !important;
+    color:#83c7e5 !important;
 }
 
 

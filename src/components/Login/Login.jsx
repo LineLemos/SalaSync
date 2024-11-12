@@ -9,7 +9,7 @@ export default function Login() {
   function handleClick() {
     axios({
       method: "post",
-      url: "http://localhost:8080",
+      url: "http://localhost:8080/auth/login",
       data: {
         username: username,
         password: password,
