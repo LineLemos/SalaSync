@@ -3,6 +3,7 @@ import styles from './room.module.css';
 import logo from '../../assets/logo.png';
 import Header from '../../components/Header/indexHeader';
 import Modal from 'react-modal';
+import Salas from '../../components/Salas/Salas';
 
 Modal.setAppElement('#root');
 
@@ -63,6 +64,7 @@ export function Room() {
           
         </div>
       </div>
+          <Salas/>
     </div>
   );
 }

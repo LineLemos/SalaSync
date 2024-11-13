@@ -1,0 +1,66 @@
+.img{
+    width: 250px;
+    height: 175px;
+    border-radius: 10px;
+}
+
+.icon{
+   color: aliceblue;
+   font-size: 30px;
+}
+
+.ulcontainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.licontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 90%;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 15px;
+    gap: 30px;
+}
+
+.containerPessoal{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerDados{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnReservar{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #83c7e5;
+    font-weight: 600;
+    color:aliceblue;
+}
+
+.containerText{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containerPrincipal{
+    margin: 15px;
+}
