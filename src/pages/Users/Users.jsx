@@ -2,9 +2,12 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
 import styles from "../Room/room.module.css";
+import Modal from 'react-modal';
 
 
 export function Users() {
+
+
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -32,7 +35,7 @@ export function Users() {
             className={styles.modalContent}
           >
             {/* estilizar */}
-            
+
           </Modal>
         </div>
       </div>

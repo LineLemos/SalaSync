@@ -49,10 +49,15 @@
 .btnReservar{
     padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     background: #83c7e5;
     font-weight: 600;
     color:aliceblue;
+}
+
+.btnReservar:hover{
+    color:   #393230;
+    transform: scale(1.1);
 }
 
 .containerText{

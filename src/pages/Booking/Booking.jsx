@@ -1,7 +1,9 @@
-import React from "react";
+import {React, useState} from "react";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
 import styles from "../Room/room.module.css";
+import Modal from 'react-modal';
+
 
 export function Booking() {
 

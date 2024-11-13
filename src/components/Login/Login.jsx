@@ -16,10 +16,10 @@ export default function Login() {
       },
     })
       .then((response) => {
-        console.log("Login realizado com sucesso:", response.data);
+        alert("Login realizado com sucesso:", response.data);
       })
       .catch((error) => {
-        console.error("Erro no login:", error);
+        alert.error("Erro no login:", error);
       });
   }
 

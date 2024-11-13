@@ -8,6 +8,31 @@ import Salas from '../../components/Salas/Salas';
 Modal.setAppElement('#root');
 
 export function Room() {
+
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [seatAmount, setSeatAmount] = useState();
+  const [equipment, setEquipment] = useState();
+
+  function handleClick() {
+    axios({
+      method: "post",
+      url: "http://localhost:8080/rooms",
+      data: {
+        name: name,
+        description: description,
+        seatAmount: seatAmount,
+        equipment: equipment
+      },
+    })
+      .then((response) => {
+        alert("sala cadastrada com sucesso:", response.data);
+      })
+      .catch((error) => {
+        alert.error("Erro ao criar sala:", error);
+      });
+  }
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -30,7 +55,6 @@ export function Room() {
             Cadastrar Sala
           </button>
 
-
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
@@ -44,6 +68,12 @@ export function Room() {
                   <h1>Cadastro de Sala</h1>
                   <label htmlFor="name">Nome da Sala</label>
                   <input type="text" id="name" required />
+                  
+                  <label htmlFor="seatAmount">Capacidade</label>
+                  <input type="number" id="seatAmount" required />
+
+                  <label htmlFor="equipment">Equipamentos</label>
+                  <input type="Text" id="equipment" required />
 
                   <label htmlFor="description">Descrição</label>
                   <textarea
@@ -53,18 +83,20 @@ export function Room() {
                     required
                   ></textarea>
                 </div>
-                 <button className={styles.submitButton}>Criar Sala</button>
+                <button onClick={handleClick} className={styles.submitButton}>
+                  Criar Sala
+                </button>
               </div>
             </form>
-              
+
             <button onClick={closeModal} className={styles.closeButton}>
               <i className="fas fa-times"></i>
             </button>
           </Modal>
-          
         </div>
       </div>
-          <Salas/>
+      <Salas />
     </div>
   );
 }
+
