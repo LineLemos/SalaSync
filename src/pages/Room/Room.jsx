@@ -56,11 +56,11 @@ export function Room() {
               </div>
             </form>
               
-
             <button onClick={closeModal} className={styles.closeButton}>
               <i className="fas fa-times"></i>
             </button>
           </Modal>
+          
         </div>
       </div>
     </div>

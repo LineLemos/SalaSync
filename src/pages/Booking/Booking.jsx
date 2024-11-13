@@ -4,6 +4,18 @@ import Header from "../../components/Header/indexHeader";
 import styles from "../Room/room.module.css";
 
 export function Booking() {
+
+   const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+
   return (
     <div className={styles.container}>
       <Header />
@@ -14,8 +26,18 @@ export function Booking() {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Ver Reservas</button>
+          <button className={styles.button} onClick={openModal}>Ver Reservas</button>
         </div>
+        <Modal isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+            overlayClassName={styles.modalOverlay}
+            className={styles.modalContent}
+            >
+
+          {/* estilizar */}
+          
+        </Modal>
       
       </div>
     </div>

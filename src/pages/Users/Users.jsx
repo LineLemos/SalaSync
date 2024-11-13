@@ -5,13 +5,35 @@ import styles from "../Room/room.module.css";
 
 
 export function Users() {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+
   return (
     <div className={styles.container}>
       <Header />
       <div className={styles.header}>
         <img src={logo} alt="Logo" className={styles.logo} />
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Editar Usuários</button>
+          <button className={styles.button} onClick={openModal}>Editar Usuários</button>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+            overlayClassName={styles.modalOverlay}
+            className={styles.modalContent}
+          >
+            {/* estilizar */}
+            
+          </Modal>
         </div>
       </div>
     </div>
