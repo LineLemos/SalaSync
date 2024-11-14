@@ -68,12 +68,9 @@ export function Room() {
                   <h1>Cadastro de Sala</h1>
                   <label htmlFor="name">Nome da Sala</label>
                   <input type="text" id="name" required />
-                  
+
                   <label htmlFor="seatAmount">Capacidade</label>
                   <input type="number" id="seatAmount" required />
-
-                  <label htmlFor="equipment">Equipamentos</label>
-                  <input type="Text" id="equipment" required />
 
                   <label htmlFor="description">Descrição</label>
                   <textarea
@@ -82,6 +79,47 @@ export function Room() {
                     maxlength="400"
                     required
                   ></textarea>
+
+                  <div className={styles.equipmentContainer}>
+                    <label>Equipamentos</label>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="tv"
+                        name="equipment"
+                        value="TV"
+                      />
+                      <label htmlFor="tv">TV</label>
+                    </div>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="projector"
+                        name="equipment"
+                        value="Projetor"
+                      />
+                      <label htmlFor="projector">Projetor</label>
+                    </div>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="whiteboard"
+                        name="equipment"
+                        value="Lousa"
+                      />
+                      <label htmlFor="whiteboard">Lousa</label>
+                    </div>
+
+                    <div>
+                      <label htmlFor="other">Outros:</label>
+                      <input
+                        type="text"
+                        id="otherEquipment"
+                        placeholder="Especifique outros equipamentos"
+                
+                      />
+                    </div>
+                  </div>
                 </div>
                 <button onClick={handleClick} className={styles.submitButton}>
                   Criar Sala
