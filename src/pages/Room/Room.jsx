@@ -1,39 +1,23 @@
-import React, { useState } from 'react';
-import styles from './room.module.css';
-import logo from '../../assets/logo.png';
-import Header from '../../components/Header/indexHeader';
-import Modal from 'react-modal';
-import Salas from '../../components/Salas/Salas';
+import React, { useState } from "react";
+import styles from "./room.module.css";
+import logo from "../../assets/logo.png";
+import Header from "../../components/Header/indexHeader";
+import Modal from "react-modal";
+import axios from "axios";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
-export function Room() {
-
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
-  const [seatAmount, setSeatAmount] = useState();
-  const [equipment, setEquipment] = useState();
-
-  function handleClick() {
-    axios({
-      method: "post",
-      url: "http://localhost:8080/rooms",
-      data: {
-        name: name,
-        description: description,
-        seatAmount: seatAmount,
-        equipment: equipment
-      },
-    })
-      .then((response) => {
-        alert("sala cadastrada com sucesso:", response.data);
-      })
-      .catch((error) => {
-        alert.error("Erro ao criar sala:", error);
-      });
-  }
-
+export function Room({ onRoomCreated }) {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [seatAmount, setSeatAmount] = useState("");
+  const [description, setDescription] = useState("");
+  const [equipment, setEquipment] = useState({
+    tv: false,
+    projector: false,
+    computer: false,
+    other: "",
+  });
 
   function openModal() {
     setIsOpen(true);
@@ -41,6 +25,70 @@ export function Room() {
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const selectedEquipment = Object.keys(equipment).filter(
+  //     (key) => equipment[key]
+  //   );
+
+  //   const roomData = {
+  //     name: name,
+  //     description: description,
+  //     equipment: selectedEquipment,
+  //     seatAmount: parseInt(seatAmount),
+  //   };
+
+  //   const token = localStorage.getItem("token"); CANSEEEEEEEEEEI
+
+  //   axios
+  //     .post("http://localhost:8080/rooms", roomData, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`, // Adicione o token JWT no cabeçalho
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log("Sala criada com sucesso:", response.data);
+  //       closeModal();
+  //       onRoomCreated();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Erro ao criar sala:", error);
+  //     });
+  // }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const selectedEquipment = Object.keys(equipment).filter(
+    (key) => equipment[key]
+  );
+  const roomData = {
+    name: name,
+    description: description,
+    equipment: selectedEquipment,
+    seatAmount: parseInt(seatAmount),
+  };
+  axios
+    .post("http://localhost:8080/rooms", roomData)
+    .then((response) => {
+      console.log("Sala criada com sucesso:", response.data);
+      closeModal();
+      onRoomCreated();
+    })
+    .catch((error) => {
+      console.error("Erro ao criar sala:", error);
+    });
+}
+
+
+
+  function handleEquipmentChange(event) {
+    const { name, value, checked } = event.target;
+    setEquipment((prevState) => ({
+      ...prevState,
+      [name]: name === "other" ? value : checked,
+    }));
   }
 
   return (
@@ -62,21 +110,35 @@ export function Room() {
             overlayClassName={styles.modalOverlay}
             className={styles.modalContent}
           >
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className={styles.form}>
                 <div className={styles.formContent}>
                   <h1>Cadastro de Sala</h1>
                   <label htmlFor="name">Nome da Sala</label>
-                  <input type="text" id="name" required />
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
 
                   <label htmlFor="seatAmount">Capacidade</label>
-                  <input type="number" id="seatAmount" required />
+                  <input
+                    type="number"
+                    id="seatAmount"
+                    value={seatAmount}
+                    onChange={(e) => setSeatAmount(e.target.value)}
+                    required
+                  />
 
                   <label htmlFor="description">Descrição</label>
                   <textarea
+                    id="description"
                     rows="8"
-                    cols="40"
-                    maxlength="400"
+                    maxLength="400"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     required
                   ></textarea>
 
@@ -86,8 +148,9 @@ export function Room() {
                       <input
                         type="checkbox"
                         id="tv"
-                        name="equipment"
-                        value="TV"
+                        name="tv"
+                        checked={equipment.tv}
+                        onChange={handleEquipmentChange}
                       />
                       <label htmlFor="tv">TV</label>
                     </div>
@@ -95,33 +158,36 @@ export function Room() {
                       <input
                         type="checkbox"
                         id="projector"
-                        name="equipment"
-                        value="Projetor"
+                        name="projector"
+                        checked={equipment.projector}
+                        onChange={handleEquipmentChange}
                       />
                       <label htmlFor="projector">Projetor</label>
                     </div>
                     <div>
                       <input
                         type="checkbox"
-                        id="whiteboard"
-                        name="equipment"
-                        value="Lousa"
+                        id="computer"
+                        name="computer"
+                        checked={equipment.computer}
+                        onChange={handleEquipmentChange}
                       />
-                      <label htmlFor="whiteboard">Lousa</label>
+                      <label htmlFor="computer">Computadores</label>
                     </div>
-
                     <div>
                       <label htmlFor="other">Outros:</label>
                       <input
                         type="text"
-                        id="otherEquipment"
+                        id="other"
+                        name="other"
+                        value={equipment.other}
+                        onChange={handleEquipmentChange}
                         placeholder="Especifique outros equipamentos"
-                
                       />
                     </div>
                   </div>
                 </div>
-                <button onClick={handleClick} className={styles.submitButton}>
+                <button type="submit" className={styles.submitButton}>
                   Criar Sala
                 </button>
               </div>
@@ -133,8 +199,6 @@ export function Room() {
           </Modal>
         </div>
       </div>
-      <Salas />
     </div>
   );
 }
-

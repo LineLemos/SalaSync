@@ -3,8 +3,8 @@ import styles from "./login.module.css";
 import axios from "axios";
 
 export default function Login() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleClick() {
     axios({
@@ -16,10 +16,11 @@ export default function Login() {
       },
     })
       .then((response) => {
-        alert("Login realizado com sucesso:", response.data);
+        localStorage.setItem("token", response.data.token); 
+        alert("Login realizado com sucesso");
       })
       .catch((error) => {
-        alert.error("Erro no login:", error);
+        alert("Erro no login:", error);
       });
   }
 
@@ -29,10 +30,14 @@ export default function Login() {
         <div className={styles.divisaoTexto}>
           <h1 className={styles.div}>Log In.</h1>
         </div>
-        <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Usuário" />
+        <input
+          onChange={(e) => setUsername(e.target.value)}
+          type="text"
+          placeholder="Usuário"
+        />
         <input
           onChange={(e) => setPassword(e.target.value)}
-          type="text"
+          type="password"
           placeholder="Senha"
         />
         <div>
