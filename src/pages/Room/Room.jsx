@@ -27,59 +27,39 @@ export function Room({ onRoomCreated }) {
     setIsOpen(false);
   }
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   const selectedEquipment = Object.keys(equipment).filter(
-  //     (key) => equipment[key]
-  //   );
+  function handleSubmit(event) {
+    event.preventDefault();
+    const selectedEquipment = Object.keys(equipment).filter(
+      (key) => equipment[key]
+    );
 
-  //   const roomData = {
-  //     name: name,
-  //     description: description,
-  //     equipment: selectedEquipment,
-  //     seatAmount: parseInt(seatAmount),
-  //   };
+    const roomData = {
+      name: name,
+      description: description,
+      equipment: selectedEquipment,
+      seatAmount: parseInt(seatAmount),
+      imgUrl:
+        "https://businessvillage.com.br/wp-content/uploads/2020/04/sala-reuniao-curitiba-business-village.jpg",
+    };
 
-  //   const token = localStorage.getItem("token"); CANSEEEEEEEEEEI
+    const token = localStorage.getItem("token"); 
 
-  //   axios
-  //     .post("http://localhost:8080/rooms", roomData, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`, // Adicione o token JWT no cabeçalho
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log("Sala criada com sucesso:", response.data);
-  //       closeModal();
-  //       onRoomCreated();
-  //     })
-  //     .catch((error) => {
-  //       console.error("Erro ao criar sala:", error);
-  //     });
-  // }
+    axios
+      .post("http://localhost:8080/rooms/create", roomData, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      })
+      .then((response) => {
+        console.log("Sala criada com sucesso:", response.data);
+        closeModal();
+        
+      })
+      .catch((error) => {
+        console.error("Erro ao criar sala:", error);
+      });
+  }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const selectedEquipment = Object.keys(equipment).filter(
-    (key) => equipment[key]
-  );
-  const roomData = {
-    name: name,
-    description: description,
-    equipment: selectedEquipment,
-    seatAmount: parseInt(seatAmount),
-  };
-  axios
-    .post("http://localhost:8080/rooms", roomData)
-    .then((response) => {
-      console.log("Sala criada com sucesso:", response.data);
-      closeModal();
-      onRoomCreated();
-    })
-    .catch((error) => {
-      console.error("Erro ao criar sala:", error);
-    });
-}
 
 
 
@@ -187,7 +167,11 @@ function handleSubmit(event) {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className={styles.submitButton}>
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className={styles.submitButton}
+                >
                   Criar Sala
                 </button>
               </div>

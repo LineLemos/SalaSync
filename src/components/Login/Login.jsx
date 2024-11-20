@@ -16,7 +16,7 @@ export default function Login() {
       },
     })
       .then((response) => {
-        localStorage.setItem("token", response.data.token); 
+        localStorage.setItem("token", response.data);
         alert("Login realizado com sucesso");
       })
       .catch((error) => {
