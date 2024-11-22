@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./room.module.css";
 import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
 import Modal from "react-modal";
 import axios from "axios";
 import Salas from "../../components/Salas/Salas";
+import CardSala from "../../components/CardSala/index";
 
 Modal.setAppElement("#root");
 
 export function Room({ onRoomCreated }) {
+  const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [seatAmount, setSeatAmount] = useState("");
@@ -61,6 +64,19 @@ export function Room({ onRoomCreated }) {
         console.error("Erro ao criar sala:", error);
       });
   }
+  function fetchRooms() {
+    axios
+      .get("http://localhost:8080/rooms")
+      .then((response) => {
+        setRooms(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar salas:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
 
   function handleEquipmentChange(event) {
     const { name, value, checked } = event.target;
@@ -69,6 +85,14 @@ export function Room({ onRoomCreated }) {
       [name]: name === "other" ? value : checked,
     }));
   }
+
+  useEffect(() => {
+    setLoading(true);
+    fetchRooms();
+    console.log("useEffect executado");
+
+    console.log(rooms)
+ }, []);
 
   return (
     <div className={styles.container}>
@@ -183,6 +207,22 @@ export function Room({ onRoomCreated }) {
           </Modal>
         </div>
       </div>
+      <section className={styles.sectiondivisor}>
+        { loading ? (
+          <p>Carregando...</p>
+        ) : rooms.length > 0 ? (
+            rooms.map((room) => (
+              <CardSala 
+                id={room.id} 
+                nome={room.name} 
+                descricao={room.description} 
+                equipamento={room.equipment}
+                capacidade={room.capacidade}
+              />
+            ))
+          ) : (<p>Nenhuma sala disponível</p>)
+        }
+      </section>
     </div>
   );
 }

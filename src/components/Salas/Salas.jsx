@@ -12,6 +12,7 @@ export default function Salas() {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
+     console.log("useEffect executado");
     fetchRooms();
   }, []);
 
@@ -37,15 +38,16 @@ export default function Salas() {
   function handleRoomCreated(newRoom) { 
     console.log("Nova sala criada:", newRoom);
     setRooms((prevRooms) => [...prevRooms, newRoom]); 
+    fetchRooms();
+    console.log(rooms)
   }
 
   return (
     <>
       <div className={styles.containerPrincipal}>
-        <Room onRoomCreated={handleRoomCreated} />
         <ul className={styles.ulcontainer}>
-          {rooms.map((room) => (
-            <li key={room.id} className={styles.licontainer}>
+          {rooms.map((room, index) => (
+            <li key={`${room.id}-${index}`} className={styles.licontainer}>
               <div className={styles.containerText}>
                 <h2 className={styles.nameRoom}>NOME: {room.name}</h2>
                 <p>DESCRIÇÃO: {room.description}</p>
@@ -56,45 +58,9 @@ export default function Salas() {
                   <FontAwesomeIcon icon={faUser} className={styles.icon} />
                   <p>{room.seatAmount}</p>
                 </div>
-                <button className={styles.btnReservar} onClick={openModal}>
-                  Reservar
-                </button>
+                
               </div>
-              <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                contentLabel="Booking Modal"
-                overlayClassName={styles.modalOverlay}
-                className={styles.modalContent}
-              >
-                <form>
-                  <div className={styles.form}>
-                    <div className={styles.formContent}>
-                      <h1>Reserva</h1>
-                      <label htmlFor="creator">Criado por</label>
-                      <input type="text" id="creator" required />
-
-                      <label htmlFor="startTime">Horário de Início</label>
-                      <input type="time" id="startTime" required />
-
-                      <label htmlFor="endTime">Horário de Término</label>
-                      <input type="time" id="endTime" required />
-
-                      <label htmlFor="date">Data da Reserva</label>
-                      <input type="date" id="date" required />
-                    </div>
-                    <button
-                      className={styles.submitButton}
-                      onClick={handleSubmit}
-                    >
-                      Salvar Reserva
-                    </button>
-                  </div>
-                </form>
-                <button onClick={closeModal} className={styles.closeButton}>
-                  <i className="fas fa-times"></i>
-                </button>
-              </Modal>
+             
             </li>
           ))}
         </ul>
