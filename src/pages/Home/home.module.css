@@ -56,6 +56,10 @@
     width: 70px;
 }
 
+.title:hover{
+    transform: scale(1.1);
+}
+
 .title {
     display: flex;
     align-items: center;
@@ -106,9 +110,9 @@
 }
 
 .senaiName {
-    margin: 0;
     font-size: 3em;
     font-weight: 400;
+    margin-right: 50px;
 }
 
 .text {

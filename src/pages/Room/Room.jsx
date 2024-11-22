@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import Header from "../../components/Header/indexHeader";
 import Modal from "react-modal";
 import axios from "axios";
+import Salas from "../../components/Salas/Salas";
 
 Modal.setAppElement("#root");
 
@@ -38,8 +39,6 @@ export function Room({ onRoomCreated }) {
       description: description,
       equipment: selectedEquipment,
       seatAmount: parseInt(seatAmount),
-      imgUrl:
-        "https://businessvillage.com.br/wp-content/uploads/2020/04/sala-reuniao-curitiba-business-village.jpg",
     };
 
     const token = localStorage.getItem("token"); 
@@ -52,16 +51,16 @@ export function Room({ onRoomCreated }) {
       })
       .then((response) => {
         console.log("Sala criada com sucesso:", response.data);
+
+         if (onRoomCreated) {
+           onRoomCreated(response.data);
+         }
         closeModal();
-        
       })
       .catch((error) => {
         console.error("Erro ao criar sala:", error);
       });
   }
-
-
-
 
   function handleEquipmentChange(event) {
     const { name, value, checked } = event.target;
@@ -115,7 +114,7 @@ export function Room({ onRoomCreated }) {
                   <label htmlFor="description">Descrição</label>
                   <textarea
                     id="description"
-                    rows="8"
+                    rows="5"
                     maxLength="400"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -123,7 +122,7 @@ export function Room({ onRoomCreated }) {
                   ></textarea>
 
                   <div className={styles.equipmentContainer}>
-                    <label>Equipamentos</label>
+                    <label>Equipamentos:</label>
                     <div>
                       <input
                         type="checkbox"
@@ -154,7 +153,7 @@ export function Room({ onRoomCreated }) {
                       />
                       <label htmlFor="computer">Computadores</label>
                     </div>
-                    <div>
+                    <div className={styles.othersEquipment}>
                       <label htmlFor="other">Outros:</label>
                       <input
                         type="text"
@@ -180,6 +179,7 @@ export function Room({ onRoomCreated }) {
             <button onClick={closeModal} className={styles.closeButton}>
               <i className="fas fa-times"></i>
             </button>
+
           </Modal>
         </div>
       </div>

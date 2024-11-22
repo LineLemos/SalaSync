@@ -84,16 +84,17 @@
 
 .modalContent {
   /* background: linear-gradient(to top, #181717, #5e5e5e); */
-  background-color: rgba(131, 199, 229, 0.7);
+  background-color: #83c8e5d1;
   border-radius: 8px;
-  width: 800px; 
-  height: 570px;
+  width: 700px; 
+  height: 580px;
   max-width: 90%;
-  box-shadow: 0 4px 8px rgba(39, 39, 39, 0.2); 
+  box-shadow: 0 4px 8px rgba(95, 95, 95, 0.2); 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .closeButton {
@@ -107,7 +108,7 @@
 }
 
 .closeButton i{
- color: #393230;
+ color: #d1d0d0;
 }
 
 .closeButton i:hover{
@@ -119,53 +120,72 @@
 .form{
 display: flex;
 flex-direction: column;
-width: 600px;
+width: 280px;
 padding: 8px 0;
-gap: 20px;
+gap: 8px;
 align-items: center;
 justify-content: center;
 }
 
 .form h1{
   color: #ffffff;
-  font-size: 40px;
+  font-size: 30px;
+
 }
 
 .formContent { 
   display: flex; 
   flex-direction: column; 
   width: 100%; 
-  gap: 10px; }
+  gap: 8px; }
 
 
 .form label{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 160;
     color: #ffffff;
-
+    font-family: "Yanone Kaffeesatz", sans-serif;
+  
 }
 
 input, textarea{
-     background-color:#b7dae9 ;
-    border-radius: 20px;
+     background-color:#cee9f4 ;
+    border-radius: 10px;
     width: 100%; 
-    padding: 8px;
+    padding: 10px;
+    display: flex;
+    gap: 8px;
 }
 
 .equipmentContainer{
-  display: flex;
+  line-height: 18px;
+  gap: 25px;
+  
+
 
 }
 
+.equipmentContainer label {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.othersEquipment{
+  display:flex;
+  padding: 15px;
+  
+ 
+}
 .submitButton {
-  background-color:#696e6f;
-  color: #d9d9d6;
+  background-color:#57545495;
+  color: #ffffff;
   border: none;
-  width: 160px;
-  height: 35px;
+  width: 150px;
+  height: 30px;
   font-size: 16px;
-  font-weight: 500;
-  border-radius: 20px;
+  font-weight: 300;
+  border-radius: 10px;
   margin: 0 auto;
   cursor: pointer;
 }

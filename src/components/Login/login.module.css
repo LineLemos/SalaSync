@@ -50,6 +50,7 @@
 .divisaoTexto > h1{
     font-size: 50px;
     color: white;
+    padding-bottom: 20px;
 }
 
 .section > input{

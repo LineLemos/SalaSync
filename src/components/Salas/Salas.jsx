@@ -34,18 +34,20 @@ export default function Salas() {
     setIsOpen(false);
   }
 
+  function handleRoomCreated(newRoom) { 
+    console.log("Nova sala criada:", newRoom);
+    setRooms((prevRooms) => [...prevRooms, newRoom]); 
+  }
+
   return (
     <>
       <div className={styles.containerPrincipal}>
-        <Room onRoomCreated={fetchRooms} />
+        <Room onRoomCreated={handleRoomCreated} />
         <ul className={styles.ulcontainer}>
           {rooms.map((room) => (
             <li key={room.id} className={styles.licontainer}>
-              <div>
-                <img src={ronaldinho} alt="" className={styles.img} />
-              </div>
               <div className={styles.containerText}>
-                <h2>NOME: {room.name}</h2>
+                <h2 className={styles.nameRoom}>NOME: {room.name}</h2>
                 <p>DESCRIÇÃO: {room.description}</p>
                 <p>EQUIPAMENTOS: {room.equipment.join(", ")}</p>
               </div>
@@ -58,7 +60,6 @@ export default function Salas() {
                   Reservar
                 </button>
               </div>
-
               <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -101,4 +102,3 @@ export default function Salas() {
     </>
   );
 }
-
